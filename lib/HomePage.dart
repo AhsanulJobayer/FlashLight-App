@@ -22,13 +22,28 @@ class _HomepageState extends State<HomePage> {
       ),
 
       body: Center(
-        child: Switch(value: isON,
-          onChanged: (value) {
-           setState(() {
-             isON = !isON;
-             isON ? Wolfflashlight.lightOn() : Wolfflashlight.lightOff();
-           });
-        },),
+        child: Transform.scale(
+          scale: 3,
+          // child: Switch(value: isON,
+          //   onChanged: (value) {
+          //     setState(() {
+          //       isON = !isON;
+          //       isON ? Wolfflashlight.lightOn() : Wolfflashlight.lightOff();
+          //
+          //     });
+          //   },),
+          child: IconButton(
+            icon: Icon(
+              Icons.power_settings_new,),
+            onPressed: () {
+              setState(() {
+                isON = !isON;
+                isON ? Wolfflashlight.lightOn() : Wolfflashlight.lightOff();
+              });
+            },
+
+          ),
+        ),
       ),
     );
   }
